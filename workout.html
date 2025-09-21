@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Generator - GreenBite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/workout.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>GreenBite</h2>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="recipes.html" class="nav-link">Recipes</a>
+                <a href="calculator.html" class="nav-link">Calculator</a>
+                <a href="workout.html" class="nav-link active">Workout</a>
+                <a href="mindfulness.html" class="nav-link">Mindfulness</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Workout Generator</h1>
+            <p>Generate personalized workouts based on your preferences</p>
+        </div>
+    </section>
+
+    <!-- Workout Configuration -->
+    <section class="workout-config">
+        <div class="container">
+            <div class="config-card">
+                <h3>Customize Your Workout</h3>
+                <form id="workout-form">
+                    <div class="config-grid">
+                        <div class="config-group">
+                            <label>Target Body Parts</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" value="chest" name="bodyParts">
+                                    <span>💪 Chest</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" value="back" name="bodyParts">
+                                    <span>🏋️ Back</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" value="shoulders" name="bodyParts">
+                                    <span>🤸 Shoulders</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" value="arms" name="bodyParts">
+                                    <span>💪 Arms</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" value="core" name="bodyParts">
+                                    <span>🎯 Core</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" value="legs" name="bodyParts">
+                                    <span>🦵 Legs</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="config-group">
+                            <label>Available Equipment</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" value="bodyweight" name="equipment" checked>
+                                    <span>🤲 Bodyweight</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" value="dumbbells" name="equipment">
+                                    <span>🏋️ Dumbbells</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" value="barbell" name="equipment">
+                                    <span>⚖️ Barbell</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" value="resistance" name="equipment">
+                                    <span>🎀 Resistance Bands</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" value="kettlebell" name="equipment">
+                                    <span>🔔 Kettlebell</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="config-row">
+                        <div class="form-group">
+                            <label for="workout-duration">Duration (minutes)</label>
+                            <select id="workout-duration">
+                                <option value="15">15 minutes</option>
+                                <option value="30" selected>30 minutes</option>
+                                <option value="45">45 minutes</option>
+                                <option value="60">60 minutes</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="workout-intensity">Intensity</label>
+                            <select id="workout-intensity">
+                                <option value="low">Low</option>
+                                <option value="moderate" selected>Moderate</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Generate Workout</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Generated Workout -->
+    <section class="workout-display" id="workout-display" style="display: none;">
+        <div class="container">
+            <div class="workout-header">
+                <h2>Your Custom Workout</h2>
+                <div class="workout-controls">
+                    <button class="btn btn-secondary" id="start-workout">Start Workout</button>
+                    <button class="btn btn-outline" id="regenerate-workout">Generate New</button>
+                </div>
+            </div>
+            <div class="workout-exercises" id="workout-exercises">
+                <!-- Exercises will be generated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Workout Timer -->
+    <section class="workout-timer" id="workout-timer" style="display: none;">
+        <div class="container">
+            <div class="timer-card">
+                <div class="current-exercise">
+                    <h3 id="current-exercise-name">Exercise Name</h3>
+                    <p id="current-exercise-description">Exercise description</p>
+                </div>
+                <div class="timer-display">
+                    <div class="timer-circle">
+                        <svg class="timer-svg" width="240" height="240">
+                            <defs>
+                                <linearGradient id="timerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:#34d399;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#6ee7b7;stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="timerGradientRest" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:#60a5fa;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#93c5fd;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="120" cy="120" r="100" class="timer-circle-bg"></circle>
+                            <circle cx="120" cy="120" r="100" class="timer-circle-progress" id="timer-progress">
+                            </circle>
+                        </svg>
+                        <div class="timer-text">
+                            <span class="timer-time" id="timer-time">00:30</span>
+                            <span class="timer-label" id="timer-label">Work</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timer-controls">
+                    <button class="btn btn-secondary" id="pause-timer">Pause</button>
+                    <button class="btn btn-outline" id="skip-exercise">Skip</button>
+                    <button class="btn btn-danger" id="stop-workout">Stop</button>
+                </div>
+                <div class="workout-progress">
+                    <p>Exercise <span id="current-exercise-number">1</span> of <span id="total-exercises">8</span></p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="workout-progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sound Controls -->
+    <div class="sound-controls">
+        <button class="sound-btn" id="sound-toggle" title="Toggle Sound">
+            <span id="sound-icon">🔊</span>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>GreenBite</h4>
+                    <p>Your comprehensive companion for a healthier, more mindful lifestyle.</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="recipes.html">Recipes</a></li>
+                        <li><a href="calculator.html">Calculator</a></li>
+                        <li><a href="workout.html">Workout</a></li>
+                        <li><a href="mindfulness.html">Mindfulness</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contact.html#faq">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Connect</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📧</a>
+                        <a href="#" class="social-link">📱</a>
+                        <a href="#" class="social-link">🐦</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GreenBite. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/global.js"></script>
+    <script src="js/workout.js"></script>
+</body>
+
+</html>

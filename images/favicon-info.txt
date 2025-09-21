@@ -1,0 +1,30 @@
+<!-- GreenBite Favicon Placeholder -->
+<!-- This is a placeholder. In a real project, you would use actual favicon.ico files -->
+<!-- For now, the site will use browser defaults -->
+
+<!-- Add these lines to the <head> section of each HTML file: -->
+<!-- 
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="manifest" href="manifest.json">
+<meta name="msapplication-TileColor" content="#4ade80">
+<meta name="theme-color" content="#ffffff">
+-->
+
+<!-- PWA Icon Sizes Needed: -->
+<!-- 
+- favicon.ico (16x16, 32x32, 48x48)
+- icon-72x72.png
+- icon-96x96.png  
+- icon-128x128.png
+- icon-144x144.png
+- icon-152x152.png
+- icon-192x192.png
+- icon-384x384.png
+- icon-512x512.png
+- apple-touch-icon.png (180x180)
+-->
+
+<!-- Note: These icon files should feature the GreenBite logo -->
+<!-- with a green leaf or healthy food symbol on a clean background -->

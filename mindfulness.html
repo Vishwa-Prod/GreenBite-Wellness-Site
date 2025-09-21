@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindfulness - GreenBite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/mindfulness.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>GreenBite</h2>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="recipes.html" class="nav-link">Recipes</a>
+                <a href="calculator.html" class="nav-link">Calculator</a>
+                <a href="workout.html" class="nav-link">Workout</a>
+                <a href="mindfulness.html" class="nav-link active">Mindfulness</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Mindfulness & Meditation</h1>
+            <p>Find inner peace and improve your mental well-being</p>
+        </div>
+    </section>
+
+    <!-- Breathing Exercise -->
+    <section class="breathing-section">
+        <div class="container">
+            <div class="breathing-card">
+                <h2>Breathing Exercise</h2>
+                <p>Focus on your breath and let your mind find peace</p>
+                <div class="breathing-container">
+                    <div class="breathing-circle" id="breathing-circle">
+                        <div class="inner-circle">
+                            <span class="breath-text" id="breath-text">Breathe</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="breathing-controls">
+                    <button class="btn btn-primary" id="start-breathing">Start Breathing</button>
+                    <button class="btn btn-secondary" id="stop-breathing" style="display: none;">Stop</button>
+                </div>
+                <div class="breathing-settings">
+                    <div class="setting-group">
+                        <label for="inhale-duration">Inhale (seconds)</label>
+                        <input type="range" id="inhale-duration" min="3" max="8" value="4">
+                        <span id="inhale-value">4</span>
+                    </div>
+                    <div class="setting-group">
+                        <label for="hold-duration">Hold (seconds)</label>
+                        <input type="range" id="hold-duration" min="2" max="8" value="4">
+                        <span id="hold-value">4</span>
+                    </div>
+                    <div class="setting-group">
+                        <label for="exhale-duration">Exhale (seconds)</label>
+                        <input type="range" id="exhale-duration" min="4" max="10" value="6">
+                        <span id="exhale-value">6</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meditation Timer -->
+    <section class="meditation-section">
+        <div class="container">
+            <div class="meditation-card">
+                <h2>Meditation Timer</h2>
+                <p>Set a timer for your meditation practice</p>
+                <div class="timer-container">
+                    <div class="meditation-timer">
+                        <svg class="timer-svg" width="250" height="250">
+                            <defs>
+                                <linearGradient id="meditationGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:#34d399;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#6ee7b7;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="125" cy="125" r="110" class="timer-circle-bg"></circle>
+                            <circle cx="125" cy="125" r="110" class="timer-circle-progress" id="meditation-progress">
+                            </circle>
+                        </svg>
+                        <div class="timer-content">
+                            <div class="time-display" id="meditation-time">05:00</div>
+                            <div class="timer-status" id="timer-status">Ready</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timer-presets">
+                    <button class="preset-btn" data-minutes="5">5 min</button>
+                    <button class="preset-btn active" data-minutes="10">10 min</button>
+                    <button class="preset-btn" data-minutes="15">15 min</button>
+                    <button class="preset-btn" data-minutes="20">20 min</button>
+                    <button class="preset-btn" data-minutes="25">25 min</button>
+                </div>
+                <div class="timer-controls">
+                    <button class="btn btn-primary" id="start-meditation">Start</button>
+                    <button class="btn btn-secondary" id="pause-meditation" style="display: none;">Pause</button>
+                    <button class="btn btn-outline" id="reset-meditation">Reset</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ambient Sounds -->
+    <section class="ambient-section">
+        <div class="container">
+            <div class="ambient-card">
+                <h2>Ambient Sounds</h2>
+                <p>Choose calming sounds to enhance your practice</p>
+                <div class="sound-grid">
+                    <div class="sound-item" data-sound="rain">
+                        <div class="sound-icon">🌧️</div>
+                        <h4>Rain</h4>
+                        <button class="sound-toggle" data-sound="rain">Play</button>
+                    </div>
+                    <div class="sound-item" data-sound="ocean">
+                        <div class="sound-icon">🌊</div>
+                        <h4>Ocean Waves</h4>
+                        <button class="sound-toggle" data-sound="ocean">Play</button>
+                    </div>
+                    <div class="sound-item" data-sound="forest">
+                        <div class="sound-icon">🌲</div>
+                        <h4>Forest</h4>
+                        <button class="sound-toggle" data-sound="forest">Play</button>
+                    </div>
+                    <div class="sound-item" data-sound="birds">
+                        <div class="sound-icon">🐦</div>
+                        <h4>Birds</h4>
+                        <button class="sound-toggle" data-sound="birds">Play</button>
+                    </div>
+                    <div class="sound-item" data-sound="white-noise">
+                        <div class="sound-icon">🎵</div>
+                        <h4>White Noise</h4>
+                        <button class="sound-toggle" data-sound="white-noise">Play</button>
+                    </div>
+                    <div class="sound-item" data-sound="silence">
+                        <div class="sound-icon">🔇</div>
+                        <h4>Silence</h4>
+                        <button class="sound-toggle active" data-sound="silence">Active</button>
+                    </div>
+                </div>
+                <div class="volume-control">
+                    <label for="volume-slider">Volume</label>
+                    <input type="range" id="volume-slider" min="0" max="100" value="50">
+                    <span id="volume-value">50%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Session Tracking -->
+    <section class="session-tracking">
+        <div class="container">
+            <div class="tracking-card">
+                <h2>Session Tracking</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-value" id="total-sessions">0</div>
+                        <div class="stat-label">Total Sessions</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">⏰</div>
+                        <div class="stat-value" id="total-time">0m</div>
+                        <div class="stat-label">Total Time</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">🔥</div>
+                        <div class="stat-value" id="current-streak">0</div>
+                        <div class="stat-label">Current Streak</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-value" id="longest-streak">0</div>
+                        <div class="stat-label">Longest Streak</div>
+                    </div>
+                </div>
+                <div class="recent-sessions">
+                    <h3>Recent Sessions</h3>
+                    <div class="sessions-list" id="sessions-list">
+                        <p class="no-sessions">No sessions yet. Start your first meditation!</p>
+                    </div>
+                </div>
+                <button class="btn btn-outline" id="clear-data">Clear All Data</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>GreenBite</h4>
+                    <p>Your comprehensive companion for a healthier, more mindful lifestyle.</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="recipes.html">Recipes</a></li>
+                        <li><a href="calculator.html">Calculator</a></li>
+                        <li><a href="workout.html">Workout</a></li>
+                        <li><a href="mindfulness.html">Mindfulness</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contact.html#faq">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Connect</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📧</a>
+                        <a href="#" class="social-link">📱</a>
+                        <a href="#" class="social-link">🐦</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GreenBite. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/global.js"></script>
+    <script src="js/mindfulness.js"></script>
+</body>
+
+</html>

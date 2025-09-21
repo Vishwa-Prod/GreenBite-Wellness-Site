@@ -1,0 +1,60 @@
+GREENBITE - CREDITS & REFERENCES
+=====================================
+
+🎵 AMBIENT SOUND SOURCES
+-------------------------
+
+Primary Sound Sources:
+- Rain Sounds: https://www.soundjay.com/misc/sounds/rain-01.wav (SoundJay.com)
+- Ocean Waves: https://www.soundjay.com/misc/sounds/ocean-wave-1.wav (SoundJay.com)
+- Forest Ambience: https://www.soundjay.com/misc/sounds/forest-1.wav (SoundJay.com)
+- Bird Sounds: https://www.soundjay.com/misc/sounds/birds-1.wav (SoundJay.com)
+- White Noise: https://www.soundjay.com/misc/sounds/white-noise-1.wav (SoundJay.com)
+
+Fallback Sound Sources (Pixabay):
+- Rain: https://pixabay.com/sound-effects/rain-01-6792/
+- Ocean: https://pixabay.com/sound-effects/ocean-wave-1-6790/
+- Forest: https://pixabay.com/sound-effects/forest-1-6789/
+- Birds: https://pixabay.com/sound-effects/birds-1-6788/
+- White Noise: https://pixabay.com/sound-effects/white-noise-1-6787/
+
+High-Quality Local Sound Options (Freesound.org):
+- Rain: https://freesound.org/people/InspectorJ/sounds/346987/ (CC Attribution)
+- Ocean: https://freesound.org/people/InspectorJ/sounds/345852/ (CC Attribution)
+- Forest: https://freesound.org/people/klankbeeld/sounds/198302/ (CC0)
+- Birds: https://freesound.org/people/reinsamba/sounds/18765/ (CC Attribution)
+- White Noise: https://freesound.org/people/deleted_user_877451/sounds/76376/ (CC0)
+
+🎨 DESIGN & DEVELOPMENT
+-----------------------
+- Fonts: Google Fonts - Poppins (https://fonts.google.com/specimen/Poppins)
+- Icons: Unicode Emoji Characters
+- Color Palette: Custom design with Tailwind CSS inspired colors
+
+📚 NUTRITION & HEALTH INFORMATION
+----------------------------------
+- BMR Calculation: Mifflin-St Jeor Equation
+- Macronutrient Guidelines: General dietary recommendations
+- Exercise Database: Common fitness exercises and movements
+
+⚖️ LICENSES & ATTRIBUTION
+--------------------------
+This project uses various Creative Commons licensed content:
+- CC0: No rights reserved, public domain
+- CC Attribution: Credit must be given to the creator
+- SoundJay: Free for personal and commercial use
+- Pixabay: Free for commercial use, no attribution required
+
+🙏 SPECIAL THANKS
+------------------
+Thank you to all the creators and contributors who made their work available 
+under Creative Commons licenses, enabling projects like GreenBite to provide 
+rich, multimedia experiences for users focused on health and wellness.
+
+NOTES:
+------
+- To use local files: Create a 'sounds' folder in your project root and place 
+  the downloaded files there with names: Rain.wav, Ocean.wav, Forest.wav, 
+  Birds.mp3, White Noise.mp3
+- All external links were valid at the time of project creation
+- Please respect the licensing terms when using these resources

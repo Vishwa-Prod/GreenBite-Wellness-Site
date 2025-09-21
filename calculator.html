@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Calculator - GreenBite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/calculator.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>GreenBite</h2>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="recipes.html" class="nav-link">Recipes</a>
+                <a href="calculator.html" class="nav-link active">Calculator</a>
+                <a href="workout.html" class="nav-link">Workout</a>
+                <a href="mindfulness.html" class="nav-link">Mindfulness</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Nutrition Calculator</h1>
+            <p>Calculate your BMR, TDEE, and macronutrient needs</p>
+        </div>
+    </section>
+
+    <!-- Calculator Form -->
+    <section class="calculator-section">
+        <div class="container">
+            <div class="calculator-card">
+                <form id="nutrition-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" min="15" max="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="height">Height (cm)</label>
+                            <input type="number" id="height" min="100" max="250" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="weight">Weight (kg)</label>
+                            <input type="number" id="weight" min="30" max="300" step="0.1" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="activity">Activity Level</label>
+                            <select id="activity" required>
+                                <option value="">Select Activity Level</option>
+                                <option value="1.2">Sedentary (little/no exercise)</option>
+                                <option value="1.375">Lightly active (light exercise 1-3 days/week)</option>
+                                <option value="1.55">Moderately active (moderate exercise 3-5 days/week)</option>
+                                <option value="1.725">Very active (hard exercise 6-7 days/week)</option>
+                                <option value="1.9">Extra active (very hard exercise, physical job)</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="goal">Goal</label>
+                            <select id="goal" required>
+                                <option value="">Select Your Goal</option>
+                                <option value="lose">Weight Loss (-500 calories)</option>
+                                <option value="maintain">Maintain Weight</option>
+                                <option value="gain">Weight Gain (+500 calories)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Calculate Nutrition</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section" id="results-section" style="display: none;">
+        <div class="container">
+            <h2>Your Nutrition Plan</h2>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-icon">🔥</div>
+                    <h3>BMR</h3>
+                    <div class="result-value">
+                        <span class="counter" id="bmr-counter">0</span>
+                        <span class="unit">calories/day</span>
+                    </div>
+                    <p>Basal Metabolic Rate - calories your body burns at rest</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon">⚡</div>
+                    <h3>TDEE</h3>
+                    <div class="result-value">
+                        <span class="counter" id="tdee-counter">0</span>
+                        <span class="unit">calories/day</span>
+                    </div>
+                    <p>Total Daily Energy Expenditure - calories needed to maintain weight</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon">🎯</div>
+                    <h3>Target Calories</h3>
+                    <div class="result-value">
+                        <span class="counter" id="target-counter">0</span>
+                        <span class="unit">calories/day</span>
+                    </div>
+                    <p>Daily calorie goal based on your objective</p>
+                </div>
+            </div>
+
+            <!-- Macronutrient Breakdown -->
+            <div class="macro-section">
+                <h3>Macronutrient Breakdown</h3>
+                <div class="progress-bars">
+                    <div class="progress-item">
+                        <label>Protein (30% of total calories)</label>
+                        <div class="progress-bar">
+                            <div class="progress-fill protein-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text" id="protein-text">0g (0 calories)</span>
+                    </div>
+                    <div class="progress-item">
+                        <label>Carbohydrates (40% of total calories)</label>
+                        <div class="progress-bar">
+                            <div class="progress-fill carbs-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text" id="carbs-text">0g (0 calories)</span>
+                    </div>
+                    <div class="progress-item">
+                        <label>Fats (30% of total calories)</label>
+                        <div class="progress-bar">
+                            <div class="progress-fill fats-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text" id="fats-text">0g (0 calories)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>GreenBite</h4>
+                    <p>Your comprehensive companion for a healthier, more mindful lifestyle.</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="recipes.html">Recipes</a></li>
+                        <li><a href="calculator.html">Calculator</a></li>
+                        <li><a href="workout.html">Workout</a></li>
+                        <li><a href="mindfulness.html">Mindfulness</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contact.html#faq">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Connect</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📧</a>
+                        <a href="#" class="social-link">📱</a>
+                        <a href="#" class="social-link">🐦</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GreenBite. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/global.js"></script>
+    <script src="js/calculator.js"></script>
+</body>
+
+</html>

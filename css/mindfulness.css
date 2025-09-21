@@ -1,0 +1,779 @@
+/* Mindfulness Page Styles */
+
+/* Breathing Section */
+.breathing-section {
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(135deg, var(--background-light) 0%, var(--secondary-color) 100%);
+}
+
+.breathing-card {
+    background: var(--secondary-color);
+    border-radius: 1.5rem;
+    padding: 4rem 3rem;
+    text-align: center;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-light);
+    max-width: 900px;
+    margin: 0 auto;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.breathing-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-secondary));
+}
+
+.breathing-card h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--primary-color), var(--text-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.breathing-card p {
+    font-size: var(--font-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.breathing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.breathing-circle {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 0 60px rgba(16, 185, 129, 0.4), 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.breathing-circle.breathing {
+    animation: breathingAnimation 8s ease-in-out infinite;
+}
+
+.breathing-circle.inhale {
+    transform: scale(1.35);
+    box-shadow: 0 0 100px rgba(16, 185, 129, 0.6), 0 12px 48px rgba(0, 0, 0, 0.15);
+}
+
+.breathing-circle.hold {
+    transform: scale(1.35);
+    box-shadow: 0 0 100px rgba(16, 185, 129, 0.6), 0 12px 48px rgba(0, 0, 0, 0.15);
+}
+
+.breathing-circle.exhale {
+    transform: scale(1);
+    box-shadow: 0 0 60px rgba(16, 185, 129, 0.4), 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.inner-circle {
+    width: 220px;
+    height: 220px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 40px rgba(16, 185, 129, 0.25), 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    border: 2px solid rgba(16, 185, 129, 0.2);
+}
+
+.breath-text {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes breathingAnimation {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 60px rgba(16, 185, 129, 0.4), 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    25% {
+        transform: scale(1.35);
+        box-shadow: 0 0 100px rgba(16, 185, 129, 0.6), 0 12px 48px rgba(0, 0, 0, 0.15);
+    }
+
+    50% {
+        transform: scale(1.35);
+        box-shadow: 0 0 100px rgba(16, 185, 129, 0.6), 0 12px 48px rgba(0, 0, 0, 0.15);
+    }
+
+    75% {
+        transform: scale(1.35);
+        box-shadow: 0 0 100px rgba(16, 185, 129, 0.6), 0 12px 48px rgba(0, 0, 0, 0.15);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 60px rgba(16, 185, 129, 0.4), 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.breathing-controls {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.breathing-settings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    background: rgba(248, 250, 252, 0.7);
+    padding: 2.5rem 2rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-light);
+    backdrop-filter: blur(8px);
+}
+
+.setting-group {
+    text-align: center;
+}
+
+.setting-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.setting-group input[type="range"] {
+    width: 100%;
+    margin: var(--spacing-sm) 0;
+    accent-color: var(--accent-color);
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.setting-group input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.setting-group input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.setting-group input[type="range"]::-webkit-slider-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.setting-group input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    border: none;
+}
+
+.setting-group span {
+    font-size: var(--font-lg);
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+/* Meditation Section */
+.meditation-section {
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.8) 0%, var(--secondary-color) 100%);
+}
+
+.meditation-card {
+    background: var(--secondary-color);
+    border-radius: 1.5rem;
+    padding: 4rem 3rem;
+    text-align: center;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-light);
+    max-width: 900px;
+    margin: 0 auto;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.meditation-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-secondary));
+}
+
+.meditation-card h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--primary-color), var(--text-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.meditation-card p {
+    font-size: var(--font-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.timer-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.meditation-timer {
+    position: relative;
+    display: inline-block;
+    padding: 1.5rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(16, 185, 129, 0.2);
+    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.meditation-timer:hover {
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 12px 40px rgba(16, 185, 129, 0.25);
+}
+
+.timer-svg {
+    transform: rotate(-90deg);
+    filter: drop-shadow(0 8px 32px rgba(16, 185, 129, 0.4));
+}
+
+.timer-circle-bg {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.1);
+    stroke-width: 12;
+    stroke-linecap: round;
+}
+
+.timer-circle-progress {
+    fill: none;
+    stroke: url(#meditationGradient);
+    stroke-width: 12;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 0 16px rgba(16, 185, 129, 0.6));
+    animation: meditationGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes meditationGlow {
+    0% {
+        filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.6));
+    }
+    100% {
+        filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.8));
+    }
+}
+
+.timer-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.time-display {
+    font-size: var(--font-5xl);
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: 'Courier New', monospace;
+    line-height: 1;
+    margin-bottom: var(--spacing-sm);
+}
+
+.timer-status {
+    font-size: var(--font-lg);
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timer-presets {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-2xl);
+    flex-wrap: wrap;
+}
+
+.preset-btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-full);
+    background: var(--secondary-color);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    font-weight: 500;
+    min-width: 60px;
+}
+
+.preset-btn:hover,
+.preset-btn.active {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 222, 128, 0.3);
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+/* Ambient Sounds Section */
+.ambient-section {
+    padding: var(--spacing-3xl) 0;
+}
+
+.ambient-card {
+    background: var(--secondary-color);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-3xl);
+    box-shadow: 0 4px 20px var(--shadow-light);
+    border: 1px solid var(--border-color);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.ambient-card h2 {
+    text-align: center;
+    font-size: var(--font-3xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+}
+
+.ambient-card p {
+    text-align: center;
+    font-size: var(--font-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.sound-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.sound-item {
+    background: var(--background-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    border: 2px solid var(--border-color);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+}
+
+.sound-item:hover {
+    border-color: var(--accent-color);
+    background: rgba(74, 222, 128, 0.05);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px var(--shadow-medium);
+}
+
+.sound-item.active {
+    border-color: var(--accent-color);
+    background: rgba(74, 222, 128, 0.1);
+}
+
+.sound-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    display: block;
+}
+
+.sound-item h4 {
+    font-size: var(--font-lg);
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+}
+
+.sound-toggle {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 2px solid var(--accent-color);
+    border-radius: var(--radius-md);
+    background: var(--secondary-color);
+    color: var(--accent-color);
+    cursor: pointer;
+    font-weight: 500;
+    transition: all var(--transition-normal);
+    font-size: var(--font-sm);
+}
+
+.sound-toggle:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.sound-toggle.active {
+    background: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    background: var(--background-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+}
+
+.volume-control label {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.volume-control input[type="range"] {
+    flex: 1;
+    max-width: 200px;
+    accent-color: var(--accent-color);
+}
+
+.volume-control span {
+    font-weight: 600;
+    color: var(--accent-color);
+    min-width: 40px;
+}
+
+/* Session Tracking */
+.session-tracking {
+    padding: var(--spacing-3xl) 0;
+    background: var(--background-light);
+}
+
+.tracking-card {
+    background: var(--secondary-color);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-3xl);
+    box-shadow: 0 4px 20px var(--shadow-light);
+    border: 1px solid var(--border-color);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.tracking-card h2 {
+    text-align: center;
+    font-size: var(--font-3xl);
+    margin-bottom: var(--spacing-2xl);
+    color: var(--primary-color);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.stat-item {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: var(--background-light);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-normal);
+}
+
+.stat-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px var(--shadow-medium);
+}
+
+.stat-icon {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.stat-value {
+    font-size: var(--font-3xl);
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: var(--spacing-xs);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.recent-sessions {
+    background: var(--background-light);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-lg);
+}
+
+.recent-sessions h3 {
+    font-size: var(--font-xl);
+    margin-bottom: var(--spacing-lg);
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.sessions-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.session-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: var(--font-sm);
+}
+
+.session-item:last-child {
+    border-bottom: none;
+}
+
+.session-date {
+    color: var(--text-secondary);
+}
+
+.session-duration {
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.no-sessions {
+    text-align: center;
+    color: var(--text-light);
+    font-style: italic;
+    padding: var(--spacing-xl);
+}
+
+/* Animations */
+@keyframes meditationPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.meditation-timer.active {
+    animation: meditationPulse 4s ease-in-out infinite;
+}
+
+@keyframes breathCounter {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.breath-text.counting {
+    animation: breathCounter 1s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .breathing-card,
+    .meditation-card,
+    .ambient-card,
+    .tracking-card {
+        padding: var(--spacing-2xl);
+    }
+
+    .breathing-circle {
+        width: 250px;
+        height: 250px;
+    }
+
+    .inner-circle {
+        width: 170px;
+        height: 170px;
+    }
+
+    .breath-text {
+        font-size: var(--font-xl);
+    }
+
+    .breathing-settings {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .timer-presets {
+        gap: var(--spacing-sm);
+    }
+
+    .preset-btn {
+        padding: var(--spacing-xs) var(--spacing-md);
+        font-size: var(--font-sm);
+    }
+
+    .sound-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: var(--spacing-md);
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+
+    .volume-control {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .breathing-circle {
+        width: 200px;
+        height: 200px;
+    }
+
+    .inner-circle {
+        width: 140px;
+        height: 140px;
+    }
+
+    .breath-text {
+        font-size: var(--font-lg);
+    }
+
+    .time-display {
+        font-size: var(--font-4xl);
+    }
+
+    .timer-status {
+        font-size: var(--font-base);
+    }
+
+    .breathing-controls,
+    .timer-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sound-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .session-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    .breathing-circle,
+    .meditation-timer.active,
+    .breath-text.counting {
+        animation: none;
+    }
+
+    .breathing-circle.breathing {
+        animation: none;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .timer-circle-bg {
+        stroke: rgba(255, 255, 255, 0.2);
+    }
+
+    .breathing-circle {
+        box-shadow: 0 0 50px rgba(74, 222, 128, 0.5);
+    }
+}

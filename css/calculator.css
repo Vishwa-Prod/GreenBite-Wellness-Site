@@ -1,0 +1,434 @@
+/* Calculator Page Styles */
+
+/* Calculator Section */
+.calculator-section {
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(135deg, var(--background-light) 0%, var(--secondary-color) 100%);
+}
+
+.calculator-card {
+    background: var(--secondary-color);
+    border-radius: 1.5rem;
+    padding: 3rem;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-light);
+    max-width: 900px;
+    margin: 0 auto;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.calculator-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-secondary));
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 1.25rem 1rem;
+    border: 2px solid var(--border-light);
+    border-radius: 0.875rem;
+    font-size: 1rem;
+    transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    font-weight: 500;
+    transform: translateZ(0);
+    will-change: transform, border-color, box-shadow;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.12);
+    transform: translateY(-2px);
+    background: var(--secondary-color);
+}
+
+.form-group input:valid,
+.form-group select:valid {
+    border-color: var(--accent-color);
+}
+
+/* Results Section */
+.results-section {
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.8) 0%, var(--secondary-color) 100%);
+    transform: translateZ(0);
+}
+
+.results-section.fade-in {
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.results-section h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+    color: var(--primary-color);
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-3xl);
+}
+
+.result-card {
+    background: var(--secondary-color);
+    padding: 2.5rem 2rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transform: translateZ(0);
+    will-change: transform, box-shadow;
+}
+
+.result-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.03), transparent);
+    opacity: 0;
+    transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateZ(0);
+}
+
+.result-card:hover::before {
+    opacity: 1;
+}
+
+.result-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 56px rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+.result-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+    display: inline-block;
+    animation: pulse 3s ease-in-out infinite;
+    transform: translateZ(0);
+}
+
+.result-card h3 {
+    font-size: var(--font-xl);
+    margin-bottom: var(--spacing-lg);
+    color: var(--primary-color);
+}
+
+.result-value {
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    z-index: 1;
+}
+
+.counter {
+    font-size: var(--font-4xl);
+    font-weight: 700;
+    color: var(--accent-color);
+    display: block;
+    line-height: 1;
+}
+
+.unit {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-top: var(--spacing-xs);
+    display: block;
+}
+
+.result-card p {
+    color: var(--text-secondary);
+    font-size: var(--font-sm);
+    line-height: 1.5;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Macronutrient Section */
+.macro-section {
+    background: var(--secondary-color);
+    padding: 3rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--border-light);
+    margin-bottom: 2.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.macro-section h3 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: var(--primary-color);
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+
+
+/* Progress Bars */
+.progress-bars {
+    background: var(--secondary-color);
+    padding: 3rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--border-light);
+    backdrop-filter: blur(10px);
+}
+
+.progress-item {
+    margin-bottom: var(--spacing-xl);
+}
+
+.progress-item:last-child {
+    margin-bottom: 0;
+}
+
+.progress-item label {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.progress-bar {
+    height: 14px;
+    background-color: rgba(243, 244, 246, 0.8);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    backdrop-filter: blur(4px);
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateZ(0);
+    will-change: width;
+}
+
+.protein-fill {
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+}
+
+.carbs-fill {
+    background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.fats-fill {
+    background: linear-gradient(90deg, #10b981, #059669);
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+    transform: translateZ(0);
+}
+
+.progress-text {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Counter Animation */
+@keyframes countUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.counter.animating {
+    animation: countUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateZ(0);
+}
+
+/* Shimmer Animation */
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Form Validation */
+.form-group.error input,
+.form-group.error select {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.form-group .error-message {
+    color: #ef4444;
+    font-size: var(--font-sm);
+    margin-top: var(--spacing-xs);
+    display: block;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity, transform;
+}
+
+.form-group.error .error-message {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Loading State */
+.calculator-card.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.calculator-card.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border-color);
+    border-top: 3px solid var(--accent-color);
+    border-radius: 50%;
+    animation: modernPulse 1.5s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .calculator-card {
+        padding: var(--spacing-lg);
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+
+
+    .macro-section,
+    .progress-bars {
+        padding: var(--spacing-lg);
+    }
+
+    .counter {
+        font-size: var(--font-3xl);
+    }
+
+
+}
+
+@media (max-width: 480px) {
+
+    .results-section,
+    .calculator-section {
+        padding: var(--spacing-2xl) 0;
+    }
+
+    .result-card,
+    .calculator-card {
+        padding: var(--spacing-md);
+    }
+
+    .counter {
+        font-size: var(--font-2xl);
+    }
+
+
+}
+
+/* Print Styles */
+@media print {
+    .results-section {
+        background: white;
+    }
+
+    .result-card,
+    .macro-section,
+    .progress-bars {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+}

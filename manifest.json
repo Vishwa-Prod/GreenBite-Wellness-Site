@@ -1,0 +1,65 @@
+{
+    "name": "GreenBite - Health & Wellness Companion",
+    "short_name": "GreenBite",
+    "description": "Your comprehensive companion for a healthier, more mindful lifestyle. Discover healthy recipes, calculate nutrition, generate workouts, and practice mindfulness.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "en",
+    "categories": [
+        "health",
+        "fitness",
+        "lifestyle",
+        "nutrition"
+    ],
+    "icons": [
+        {
+            "src": "favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Healthy Recipes",
+            "short_name": "Recipes",
+            "description": "Browse healthy and nutritious recipes",
+            "url": "/recipes.html"
+        },
+        {
+            "name": "Nutrition Calculator",
+            "short_name": "Calculator",
+            "description": "Calculate your daily nutrition needs",
+            "url": "/calculator.html"
+        },
+        {
+            "name": "Workout Generator",
+            "short_name": "Workout",
+            "description": "Generate personalized workouts",
+            "url": "/workout.html"
+        },
+        {
+            "name": "Mindfulness",
+            "short_name": "Mindfulness",
+            "description": "Practice meditation and breathing exercises",
+            "url": "/mindfulness.html"
+        }
+    ],
+
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "dir": "ltr",
+    "features": [
+        "Cross Platform",
+        "fast",
+        "simple"
+    ],
+    "iarc_rating_id": "",
+    "edge_side_panel": {},
+    "scope_extensions": [],
+    "handle_links": "preferred"
+}
