@@ -10,8 +10,8 @@
     --text-primary: #111827;
     --text-secondary: #6b7280;
     --text-light: #9ca3af;
-    --border-color: #f3f4f6;
-    --border-light: #f9fafb;
+    --border-color: #d1d5db;
+    --border-light: #e5e7eb;
     --background-light: #f8fafc;
     --background-subtle: #f1f5f9;
     --shadow-light: rgba(0, 0, 0, 0.04);
@@ -465,7 +465,7 @@ a:hover {
     padding: 2rem;
     box-shadow: 0 4px 24px var(--shadow-light);
     transition: all 0.3s ease;
-    border: 1px solid var(--border-light);
+    border: 2px solid var(--border-color);
     backdrop-filter: blur(8px);
 }
 
